@@ -64,4 +64,25 @@ header{
   &[data-visible="true"]{
     transform: translateY(0);
   }
+  a{
+    position: relative;
+    display: block;
+    &::after{
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0.125rem;
+      background-color: black;
+      bottom: -0.2rem;
+      left: 0;
+      right: 0;
+      margin: auto;
+      transition: width 0.3s;
+    }
+    &:hover{
+      &::after{
+        width: 1rem;
+      }
+    }
+  }
 }

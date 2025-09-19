@@ -508,6 +508,25 @@ header {
 .primary-menu[data-visible=true] {
   transform: translateY(0);
 }
+.primary-menu a {
+  position: relative;
+  display: block;
+}
+.primary-menu a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0.125rem;
+  background-color: black;
+  bottom: -0.2rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: width 0.3s;
+}
+.primary-menu a:hover::after {
+  width: 1rem;
+}
 
 .home-footer {
   position: relative;
@@ -576,6 +595,11 @@ header {
   display: flex;
   justify-content: space-between;
   color: black;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+.carousel-slide-link:hover {
+  opacity: 0.4;
 }
 
 .carousel-command {
@@ -585,6 +609,13 @@ header {
   display: flex;
   width: fit-content;
 }
+.carousel-command button {
+  transition: background-color 0.3s;
+}
+.carousel-command button:hover {
+  background-color: hsl(0, 0%, 27%);
+}
+
 body {
   font-family: "League Spartan", sans-serif;
   font-optical-sizing: auto;
