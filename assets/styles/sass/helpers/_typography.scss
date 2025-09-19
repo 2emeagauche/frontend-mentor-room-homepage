@@ -1,0 +1,27 @@
+@use '../helpers/variables' as v;
+
+.text-preset-2{
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: -0.125rem;
+}
+.text-preset-3-medium{
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: -0.03125rem;
+}
+.text-preset-3-bold{
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 140%;
+  letter-spacing: 0.364375rem;
+}
+.text-preset-4{
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 0.78125rem;
+  text-transform: uppercase;
+}

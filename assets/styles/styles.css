@@ -397,6 +397,35 @@ textarea:not([rows]) {
   white-space: nowrap !important;
 }
 
+.text-preset-2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: -0.125rem;
+}
+
+.text-preset-3-medium {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: -0.03125rem;
+}
+
+.text-preset-3-bold {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 140%;
+  letter-spacing: 0.364375rem;
+}
+
+.text-preset-4 {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 0.78125rem;
+  text-transform: uppercase;
+}
+
 .carousel-command-left, .carousel-command-right {
   display: flex;
   align-items: center;
@@ -480,8 +509,32 @@ header {
   transform: translateY(0);
 }
 
+.home-footer {
+  position: relative;
+}
+
 .footer-text-content {
   padding: 3rem 8.6%;
+}
+
+.footer-heading {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.footer-paragraph {
+  color: hsl(0, 0%, 63%);
+}
+
+.attribution {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-align: center;
+  color: hsl(0, 0%, 27%);
 }
 
 .header-main {
@@ -511,6 +564,18 @@ header {
 .carousel-slide-message {
   padding: 4rem 8.6%;
   align-content: baseline;
+}
+.carousel-slide-heading {
+  margin-bottom: 1rem;
+}
+.carousel-slide-paragraph {
+  margin-bottom: 2rem;
+  color: hsl(0, 0%, 63%);
+}
+.carousel-slide-link {
+  display: flex;
+  justify-content: space-between;
+  color: black;
 }
 
 .carousel-command {

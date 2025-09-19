@@ -31,6 +31,18 @@
       padding: 4rem v.$mobile-gutter;
       align-content: baseline;
     }
+    &-heading{
+      margin-bottom: 1rem;
+    }
+    &-paragraph{
+      margin-bottom: 2rem;
+      color: v.$grey-500;
+    }
+    &-link{
+      display: flex;
+      justify-content: space-between;
+      color: black;
+    }
   }
 }
 .carousel-command{

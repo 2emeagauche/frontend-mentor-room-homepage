@@ -1,6 +1,26 @@
 @use '../helpers/variables' as v;
 @use '../helpers/mixins' as mx;
 
+.home-footer{
+  position: relative;
+}
 .footer-text-content{
   padding: 3rem v.$mobile-gutter;
+}
+.footer-heading{
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.footer-paragraph{
+  color: v.$grey-500;
+}
+.attribution{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-align: center;
+  color: v.$grey-800;
 }
