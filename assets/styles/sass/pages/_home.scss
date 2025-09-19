@@ -1,0 +1,50 @@
+@use "sass:map";
+@use '../helpers/variables' as v;
+@use '../helpers/mixins' as mx;
+@use '../components/buttons';
+@use '../layout/grid';
+
+.header-main{
+  display:grid;
+  grid-template-rows: v.$visual-height-mobile 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+.carousel{
+  grid-column:1/-1;
+  grid-row:1/-1;
+  display:grid;
+  grid-template-columns: repeat(v.$slides-nb, 100%);
+  overflow-y: hidden;
+  overflow-x: auto;
+  &-slide{
+    display:grid;
+    grid-template-rows: v.$visual-height-mobile 1fr;
+    &-visual {
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: left;
+      }
+    }
+    &-message{
+      @include mx.side-protection;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      align-content: baseline;
+    }
+  }
+}
+.carousel-command{
+  grid-column:2/3;
+  grid-row:1/2;
+  margin: auto 0 0 auto;
+  display: flex;
+  width: fit-content;
+  &-left{
+    @extend %carousel-command;
+  }
+  &-right{
+    @extend %carousel-command;
+  }
+}

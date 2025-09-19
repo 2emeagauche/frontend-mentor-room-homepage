@@ -1,0 +1,8 @@
+@use '../helpers/variables' as v;
+@use '../helpers/mixins' as mx;
+
+%grid-room{
+  display:grid;
+  height: 100%;
+  grid-template-rows: 1fr 1fr;
+}

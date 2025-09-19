@@ -1,0 +1,13 @@
+// colors
+$primary-light: hsl(0, 0%, 100%);
+$primary-dark: hsl(0, 0%, 0%);
+$primary-grey: hsl(0, 0%, 50%);
+// breakpoints
+$breakpoints: (
+  'mobile': 24rem,
+  'desktop': 90rem
+);
+// slides
+$slides-nb: 3;
+// height of the slide visual
+$visual-height-mobile: 22.5rem;
