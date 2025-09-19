@@ -28,26 +28,27 @@
         <h1 class="home-page-title"><span class="sr-only">Home page of Room
             website</span><img src="assets/images/logo.svg"
             alt="Room company logo" class="room-logo"></h1>
-        <nav aria-label="Primary navigation">
+        <nav class="primary-navigation" aria-label="Primary navigation">
           <button class="mobile-nav-toggle"
             aria-controls="primary-menu" aria-expanded="false">
             <span class="sr-only">Menu</span>
           </button>
-          <ul id="primary-menu" data-visible="false"
-            class="primary-menu">
-            <li><a href="/">
-                Home
-              </a></li>
-            <li><a href="/">
-                Shop
-              </a></li>
-            <li><a href="/">
-                About
-              </a></li>
-            <li><a href="/">
-                Contact
-              </a></li>
-          </ul>
+          <div class="menu-container">
+            <ul id="primary-menu" data-visible="false" class="primary-menu">
+              <li><a href="/">
+                  home
+                </a></li>
+              <li><a href="/">
+                  shop
+                </a></li>
+              <li><a href="/">
+                  about
+                </a></li>
+              <li><a href="/">
+                  contact
+                </a></li>
+            </ul>
+          </div>
         </nav>
       </header>
 
@@ -132,9 +133,13 @@
       </main>
       <div class="carousel-command">
         <button class="carousel-command-left" aria-controls="carousel"
-          aria-label="select the previous slide"><img src="assets/images/icon-angle-left.svg" alt="arrow pointing left"></button>
+          aria-label="select the previous slide"><img
+            src="assets/images/icon-angle-left.svg"
+            alt="arrow pointing left"></button>
         <button class="carousel-command-right" aria-controls="carousel"
-          aria-label="select the next slide"><img src="assets/images/icon-angle-right.svg" alt="arrow pointing right"></button>
+          aria-label="select the next slide"><img
+            src="assets/images/icon-angle-right.svg"
+            alt="arrow pointing right"></button>
       </div>
     </div>
     <footer class="home-footer">
@@ -166,4 +171,17 @@
         alt="a stool white chair in bright light" />
     </footer>
   </body>
+  <script>
+    const toggle = document.querySelector('.mobile-nav-toggle');
+    const menu = document.querySelector('.primary-menu')
+    toggle.addEventListener('click', () => {
+      if(menu.dataset.visible === "false") {
+        menu.dataset.visible = "true";
+        toggle.setAttribute('aria-expanded', 'true');
+      } else {
+        menu.dataset.visible = "false";
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    })
+  </script>
 </html>

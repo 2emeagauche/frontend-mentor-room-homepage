@@ -19,9 +19,14 @@ body{
   font-weight: 500;
   font-size: 1rem;
   line-height: 140%;
+  &:has([data-visible="true"]){
+    overflow: hidden;
+  }
 }
 h1, h2, ul, p{
   margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
 }
 a{
   text-decoration: none;

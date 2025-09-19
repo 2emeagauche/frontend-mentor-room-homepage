@@ -2,7 +2,5 @@
 @use '../helpers/mixins' as mx;
 
 .footer-text-content{
-  @include mx.side-protection;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding: 3rem v.$mobile-gutter;
 }
