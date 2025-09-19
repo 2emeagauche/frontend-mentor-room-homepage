@@ -569,10 +569,12 @@ header {
   grid-template-columns: repeat(3, 100%);
   overflow-y: hidden;
   overflow-x: auto;
+  scroll-snap-type: x mandatory;
 }
 .carousel-slide {
   display: grid;
   grid-template-rows: 22.5rem 1fr;
+  scroll-snap-align: start;
 }
 .carousel-slide-visual img {
   width: 100%;

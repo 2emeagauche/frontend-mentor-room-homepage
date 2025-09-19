@@ -144,6 +144,7 @@
     </footer>
   </body>
   <script>
+    // Toggle mobile menu
     const toggle = document.querySelector('.mobile-nav-toggle');
     const menu = document.querySelector('.primary-menu')
     toggle.addEventListener('click', () => {
@@ -155,5 +156,38 @@
         toggle.setAttribute('aria-expanded', 'false');
       }
     })
+  </script>
+  <script>
+    // Control carousel
+    const carousel = document.querySelector('.carousel');
+    const buttonLeft = document.querySelector('.carousel-command-left');
+    const buttonRight = document.querySelector('.carousel-command-right');
+    const scrollWidth = carousel.clientWidth;
+    const scrollMax = carousel.scrollWidth - carousel.clientWidth;
+
+    buttonLeft.addEventListener('click', scrollLeft);
+    buttonRight.addEventListener('click', scrollRight);
+
+    function scrollLeft() {
+      if(carousel.scrollLeft > 0) {
+        carousel.scrollBy({
+          left: -scrollWidth,
+          behavior: 'smooth'
+        });
+      } else {
+        console.log('start');
+      }
+    }
+    
+    function scrollRight() {
+      if(carousel.scrollLeft < scrollMax) {
+        carousel.scrollBy({
+          left: scrollWidth,
+          behavior: 'smooth'
+        });
+      } else {
+        console.log('end');
+      }
+    }
   </script>
 </html>

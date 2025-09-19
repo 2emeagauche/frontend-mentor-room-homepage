@@ -16,9 +16,11 @@
   grid-template-columns: repeat(v.$slides-nb, 100%);
   overflow-y: hidden;
   overflow-x: auto;
+  scroll-snap-type: x mandatory;
   &-slide{
     display:grid;
     grid-template-rows: v.$visual-height-mobile 1fr;
+    scroll-snap-align: start;
     &-visual {
       img{
         width: 100%;
