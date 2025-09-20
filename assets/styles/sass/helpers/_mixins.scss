@@ -3,7 +3,7 @@
 
 // breakpoints mobile first
 @mixin breakpoint($size) {
-  $breakpoint-value: map-get($breakpoints, $size);
+  $breakpoint-value: map.get(v.$breakpoints, $size);
   
   @if $breakpoint-value == null {
     @error "Breakpoint '#{$size}' n'existe pas dans la map $breakpoints.";

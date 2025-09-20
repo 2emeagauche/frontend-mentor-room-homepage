@@ -7,14 +7,24 @@ $grey-800: hsl(0, 0%, 27%);
 
 // breakpoints
 $breakpoints: (
-  'mobile': 24rem,
-  'desktop': 90rem
+  'tablet-vt': 31.25rem,
+  'tablet-hz': 48rem,
+  'desktop': 67.5rem,
 );
 
 // slides
 $slides-nb: 3;
 // height of the slide visual
-$visual-height-mobile: 22.5rem;
+$slide-image-height-mobile: 22.5rem;
+$slide-image-height: (
+  'mobile': 22.5rem,
+  'tablet': 25rem,
+  'desktop': 'min-content',
+);
 
 // side protection
-$mobile-gutter: 8.6%;
+$gutter: (
+  'mobile': 8.67%,
+  'tablet': 8.33%,
+  'desktop': 0,
+);

@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '../helpers/variables' as v;
 @use '../helpers/mixins' as mx;
 
@@ -5,7 +6,23 @@
   position: relative;
 }
 .footer-text-content{
-  padding: 3rem v.$mobile-gutter;
+  padding: 3rem map.get(v.$gutter, "mobile");
+  @include mx.breakpoint('tablet-vt'){
+    padding: 4rem map.get(v.$gutter, "tablet");
+    
+  }
+}
+.footer-visual{
+  width: 100%;
+  @include mx.breakpoint('tablet-vt'){
+    object-fit: cover;
+    &:nth-of-type(1){
+      height: 18.75rem;
+    }
+    &:nth-of-type(2){
+      height: 15.1875rem;
+    }
+  }
 }
 .footer-heading{
   text-transform: uppercase;

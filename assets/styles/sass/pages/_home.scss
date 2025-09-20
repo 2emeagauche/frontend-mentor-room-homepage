@@ -6,8 +6,11 @@
 
 .header-main{
   display:grid;
-  grid-template-rows: v.$visual-height-mobile 1fr;
+  grid-template-rows: map.get(v.$slide-image-height, "mobile") 1fr;
   grid-template-columns: 1fr 1fr;
+  @include mx.breakpoint('tablet-hz'){
+    grid-template-rows: map.get(v.$slide-image-height, "tablet") 1fr;
+  }
 }
 .carousel{
   grid-column:1/-1;
@@ -19,8 +22,11 @@
   scroll-snap-type: x mandatory;
   &-slide{
     display:grid;
-    grid-template-rows: v.$visual-height-mobile 1fr;
+    grid-template-rows: map.get(v.$slide-image-height, "mobile") 1fr;
     scroll-snap-align: start;
+    @include mx.breakpoint('tablet-hz'){
+      grid-template-rows: map.get(v.$slide-image-height, "tablet") 1fr;
+    }
     &-visual {
       img{
         width: 100%;
@@ -30,8 +36,11 @@
       }
     }
     &-message{
-      padding: 4rem v.$mobile-gutter;
+      padding: 4rem map.get(v.$gutter, "mobile");
       align-content: baseline;
+      @include mx.breakpoint('tablet-vt'){
+        padding: 4rem map.get(v.$gutter, "tablet");
+      }
     }
     &-heading{
       margin-bottom: 1rem;
@@ -48,6 +57,10 @@
       transition: opacity 0.3s;
       &:hover{
         opacity: 0.4;
+      }
+      @include mx.breakpoint('tablet-vt'){
+        justify-content: flex-start;
+        gap: 1.5rem;
       }
     }
   }
