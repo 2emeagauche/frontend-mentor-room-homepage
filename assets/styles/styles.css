@@ -479,16 +479,24 @@ header {
     margin-right: 8.33%;
   }
 }
-@media screen and (min-width: 60rem) {
+@media screen and (min-width: 75rem) {
   header {
     grid-column: 1/16;
     grid-row: 1/-1;
+    display: flex;
+    gap: 3.5rem;
+    align-items: center;
   }
 }
 
 .home-page-title {
   margin: 0 auto;
   width: fit-content;
+}
+@media screen and (min-width: 75rem) {
+  .home-page-title {
+    margin: 0;
+  }
 }
 
 .mobile-nav-toggle {
@@ -498,6 +506,11 @@ header {
   top: 0;
   left: 0;
   z-index: 10000;
+}
+@media screen and (min-width: 75rem) {
+  .mobile-nav-toggle {
+    display: none;
+  }
 }
 
 .primary-navigation:has([data-visible=true]) .mobile-nav-toggle {
@@ -516,6 +529,12 @@ header {
 .menu-container:has([data-visible=true])::before {
   inset: 0;
   opacity: 0.5;
+}
+@media screen and (min-width: 75rem) {
+  .menu-container::before {
+    content: none;
+    position: static;
+  }
 }
 
 .primary-menu {
@@ -560,11 +579,25 @@ header {
     padding: 0 8.33%;
   }
 }
+@media screen and (min-width: 75rem) {
+  .primary-menu {
+    height: auto;
+    position: static;
+    padding: 0;
+    gap: 2rem;
+    transform: translateY(0%);
+    background-color: transparent;
+    color: white;
+  }
+  .primary-menu a::after {
+    background-color: white;
+  }
+}
 
 .home-footer {
   position: relative;
 }
-@media screen and (min-width: 60rem) {
+@media screen and (min-width: 75rem) {
   .home-footer {
     grid-column: 1/-1;
     grid-row: 3/-1;
@@ -582,9 +615,11 @@ header {
     padding: 4rem 8.33%;
   }
 }
-@media screen and (min-width: 60rem) {
+@media screen and (min-width: 75rem) {
   .footer-text-content {
     grid-column: 9/-9;
+    padding-top: 10.5%;
+    padding-bottom: 10.5%;
   }
 }
 
@@ -602,11 +637,13 @@ header {
     height: 15.1875rem;
   }
 }
-@media screen and (min-width: 60rem) {
+@media screen and (min-width: 75rem) {
   .footer-visual:nth-of-type(1) {
+    height: 100%;
     grid-column: 1/9;
   }
   .footer-visual:nth-of-type(2) {
+    height: 100%;
     grid-column: -1/-9;
   }
 }
@@ -631,11 +668,14 @@ header {
   color: hsl(0, 0%, 27%);
 }
 
-@media screen and (min-width: 60rem) {
+@media screen and (min-width: 75rem) {
   .body-container {
     display: grid;
     grid-template-columns: repeat(26, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    max-height: 50rem;
+    max-width: 90rem;
+    margin: auto;
   }
 }
 
@@ -649,7 +689,7 @@ header {
     grid-template-rows: 25rem 1fr;
   }
 }
-@media screen and (min-width: 60rem) {
+@media screen and (min-width: 75rem) {
   .super-main {
     grid-column: 1/-1;
     grid-row: 1/3;
@@ -677,7 +717,7 @@ header {
     grid-template-rows: 25rem 1fr;
   }
 }
-@media screen and (min-width: 60rem) {
+@media screen and (min-width: 75rem) {
   .carousel-slide {
     display: grid;
     grid-template-columns: repeat(26, 1fr);
@@ -690,7 +730,12 @@ header {
   object-fit: cover;
   object-position: left;
 }
-@media screen and (min-width: 60rem) {
+@media screen and (min-width: 75rem) {
+  .carousel-slide-visual img {
+    object-position: unset;
+  }
+}
+@media screen and (min-width: 75rem) {
   .carousel-slide-visual {
     grid-column: 1/16;
     grid-row: 1/-1;
@@ -705,10 +750,12 @@ header {
     padding: 4rem 8.33%;
   }
 }
-@media screen and (min-width: 60rem) {
+@media screen and (min-width: 75rem) {
   .carousel-slide-message {
     grid-column: 16/-1;
     grid-row: 1/-1;
+    align-content: center;
+    padding: 0 16.67%;
   }
 }
 .carousel-slide-heading {
@@ -734,6 +781,11 @@ header {
     gap: 1.5rem;
   }
 }
+@media screen and (min-width: 75rem) {
+  .carousel-slide {
+    scrollbar-width: none;
+  }
+}
 .carousel-command {
   grid-column: 2/3;
   grid-row: 1/2;
@@ -747,14 +799,22 @@ header {
 .carousel-command button:hover {
   background-color: hsl(0, 0%, 27%);
 }
-@media screen and (min-width: 60rem) {
+@media screen and (min-width: 75rem) {
+  .carousel-command button {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 75rem) {
   .carousel-command {
     grid-row: 1/-1;
     grid-column: 16/19;
+    margin: auto 0 0;
+    width: 100%;
   }
 }
 
 body {
+  align-content: center;
   font-family: "League Spartan", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;

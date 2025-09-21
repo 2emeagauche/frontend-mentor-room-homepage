@@ -16,6 +16,7 @@
 @use 'pages/_home.scss';
 // General
 body{
+  align-content: center;
   @include mx.font-league-spartan;
   font-weight: 500;
   font-size: 1rem;

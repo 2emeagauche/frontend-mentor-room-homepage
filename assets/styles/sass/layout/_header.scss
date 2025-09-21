@@ -17,11 +17,17 @@ header{
   @include mx.breakpoint('desktop'){
     grid-column: 1/16;
     grid-row: 1/-1;
+    display: flex;
+    gap: 3.5rem;
+    align-items: center;
   }
 }
 .home-page-title{
   margin: 0 auto;
   width: fit-content;
+  @include mx.breakpoint('desktop'){
+    margin: 0;
+  }
 }
 .mobile-nav-toggle{
   @extend %burger;
@@ -31,6 +37,9 @@ header{
   top: 0;
   left: 0;
   z-index: 10000;
+  @include mx.breakpoint('desktop'){
+    display: none;
+  }
 }
 .primary-navigation{
   &:has([data-visible="true"]){
@@ -53,6 +62,12 @@ header{
     &::before{
       inset: 0;
       opacity: 0.5;
+    }
+  }
+  @include mx.breakpoint('desktop'){
+    &::before{
+      content: none;
+      position: static;
     }
   }
 }
@@ -94,8 +109,19 @@ header{
       }
     }
   }
-  
   @include mx.breakpoint('tablet-vt'){
     padding: 0 map.get(v.$gutter, "tablet");
+  }
+  @include mx.breakpoint('desktop'){
+    height: auto;
+    position: static;
+    padding: 0;
+    gap: 2rem;
+    transform: translateY(0%);
+    background-color: transparent;
+    color: white;
+    a::after{
+      background-color: white;
+    }
   }
 }

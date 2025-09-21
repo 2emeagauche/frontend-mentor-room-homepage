@@ -19,6 +19,8 @@
   }
   @include mx.breakpoint('desktop'){
     grid-column: 9/-9;
+    padding-top: 10.5%;
+    padding-bottom: 10.5%;
   }
 }
 .footer-visual{
@@ -34,9 +36,11 @@
   }
   @include mx.breakpoint('desktop'){
     &:nth-of-type(1){
+      height: 100%;
       grid-column: 1/9;
     }
     &:nth-of-type(2){
+      height: 100%;
       grid-column: -1/-9;
     }
   }
