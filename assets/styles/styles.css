@@ -603,13 +603,13 @@ header {
   color: hsl(0, 0%, 27%);
 }
 
-.header-main {
+.super-main {
   display: grid;
   grid-template-rows: 22.5rem 1fr;
   grid-template-columns: 1fr 1fr;
 }
 @media screen and (min-width: 48rem) {
-  .header-main {
+  .super-main {
     grid-template-rows: 25rem 1fr;
   }
 }

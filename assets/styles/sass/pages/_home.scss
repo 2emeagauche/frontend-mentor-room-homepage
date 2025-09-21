@@ -4,7 +4,7 @@
 @use '../components/buttons';
 @use '../layout/grid';
 
-.header-main{
+.super-main{
   display:grid;
   grid-template-rows: map.get(v.$slide-image-height, "mobile") 1fr;
   grid-template-columns: 1fr 1fr;
