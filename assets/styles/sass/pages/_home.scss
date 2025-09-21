@@ -72,7 +72,9 @@
       @include mx.breakpoint('desktop'){
         grid-column: 16/-1;
         grid-row: 1/-1;
-        align-content: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         padding: 0 16.67%;
       }
     }
@@ -108,10 +110,10 @@
     display: flex;
     width: fit-content;
     &-left{
-      @extend %carousel-command;
+      @extend %carousel-button;
     }
     &-right{
-      @extend %carousel-command;
+      @extend %carousel-button;
     }
     button{
       transition: background-color 0.3s;
