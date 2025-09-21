@@ -4,12 +4,21 @@
 
 .home-footer{
   position: relative;
+  @include mx.breakpoint('desktop'){
+    grid-column: 1/-1;
+    grid-row: 3/-1;
+    grid-template-columns: subgrid;
+    display: grid;
+    grid-template-rows: min-content;
+  }
 }
 .footer-text-content{
   padding: 3rem map.get(v.$gutter, "mobile");
   @include mx.breakpoint('tablet-vt'){
     padding: 4rem map.get(v.$gutter, "tablet");
-    
+  }
+  @include mx.breakpoint('desktop'){
+    grid-column: 9/-9;
   }
 }
 .footer-visual{
@@ -21,6 +30,14 @@
     }
     &:nth-of-type(2){
       height: 15.1875rem;
+    }
+  }
+  @include mx.breakpoint('desktop'){
+    &:nth-of-type(1){
+      grid-column: 1/9;
+    }
+    &:nth-of-type(2){
+      grid-column: -1/-9;
     }
   }
 }

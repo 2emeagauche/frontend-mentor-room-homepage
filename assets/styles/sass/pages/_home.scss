@@ -4,12 +4,25 @@
 @use '../components/buttons';
 @use '../layout/grid';
 
+.body-container{
+  @include mx.breakpoint('desktop'){
+    display: grid;
+    grid-template-columns: repeat(26, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
 .super-main{
   display:grid;
   grid-template-rows: map.get(v.$slide-image-height, "mobile") 1fr;
   grid-template-columns: 1fr 1fr;
   @include mx.breakpoint('tablet-hz'){
     grid-template-rows: map.get(v.$slide-image-height, "tablet") 1fr;
+  }
+  @include mx.breakpoint('desktop'){
+    grid-column: 1/-1;
+    grid-row: 1/3;
+    grid-template-columns: subgrid;
+    grid-template-rows: 1fr;
   }
 }
 .carousel{
@@ -27,6 +40,11 @@
     @include mx.breakpoint('tablet-hz'){
       grid-template-rows: map.get(v.$slide-image-height, "tablet") 1fr;
     }
+    @include mx.breakpoint('desktop'){
+      display: grid;
+      grid-template-columns: repeat(26, 1fr);
+      grid-template-rows: 1fr;
+    }
     &-visual {
       img{
         width: 100%;
@@ -34,12 +52,20 @@
         object-fit: cover;
         object-position: left;
       }
+      @include mx.breakpoint('desktop'){
+        grid-column: 1/16;
+        grid-row: 1/-1;
+      }
     }
     &-message{
       padding: 4rem map.get(v.$gutter, "mobile");
       align-content: baseline;
       @include mx.breakpoint('tablet-vt'){
         padding: 4rem map.get(v.$gutter, "tablet");
+      }
+      @include mx.breakpoint('desktop'){
+        grid-column: 16/-1;
+        grid-row: 1/-1;
       }
     }
     &-heading{
@@ -64,23 +90,27 @@
       }
     }
   }
-}
-.carousel-command{
-  grid-column:2/3;
-  grid-row:1/2;
-  margin: auto 0 0 auto;
-  display: flex;
-  width: fit-content;
-  &-left{
-    @extend %carousel-command;
-  }
-  &-right{
-    @extend %carousel-command;
-  }
-  button{
-    transition: background-color 0.3s;
-    &:hover{
-      background-color: v.$grey-800;
+  &-command{
+    grid-column:2/3;
+    grid-row:1/2;
+    margin: auto 0 0 auto;
+    display: flex;
+    width: fit-content;
+    &-left{
+      @extend %carousel-command;
+    }
+    &-right{
+      @extend %carousel-command;
+    }
+    button{
+      transition: background-color 0.3s;
+      &:hover{
+        background-color: v.$grey-800;
+      }
+    }
+    @include mx.breakpoint('desktop'){
+      grid-row: 1/-1;
+      grid-column: 16/19;
     }
   }
 }
