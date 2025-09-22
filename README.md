@@ -1,27 +1,22 @@
-# Frontend Mentor - Room homepage solution
+# Frontend Mentor - Room homepage
 
-This is a solution to the [Room homepage challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/room-homepage-BtdBY_ENq). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+![Design preview for the Room homepage coding challenge](preview.jpg)
 
-## Table of contents
+## Welcome! 👋
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
+Thanks for checking out this front-end coding challenge.
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
+[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
 
-## Overview
+**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
 
-### The challenge
+## The challenge
 
-Users should be able to:
+Your challenge is to build out this e-commerce homepage and get it looking as close to the design as possible.
+
+You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+
+Your users should be able to:
 
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
