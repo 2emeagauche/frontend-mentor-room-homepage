@@ -52,9 +52,19 @@
             </div>
           </nav>
         </header>
+        <div class="carousel-command">
+          <button class="carousel-command-left" aria-controls="carousel"
+            aria-label="previous slide"><img
+              src="assets/images/icon-angle-left.svg"
+              alt="arrow pointing left"></button>
+          <button class="carousel-command-right" aria-controls="carousel"
+            aria-label="next slide"><img
+              src="assets/images/icon-angle-right.svg"
+              alt="arrow pointing right"></button>
+        </div>
 
-        <main id="carousel" class="carousel">
-          <section class="carousel-slide">
+        <main id="carousel" class="carousel" aria-roledescription="Slideshow" aria-label="Carousel of articles">
+          <section class="carousel-slide" role="group" aria-roledescription="Slide" aria-label="1 of 3">
             <picture class="carousel-slide-visual">
               <source srcset="assets/images/desktop-image-hero-1.jpg">
               <img src="assets/images/mobile-image-hero-1.jpg"
@@ -79,7 +89,7 @@
                   src="assets/images/icon-arrow.svg" alt="/"></a>
             </div>
           </section>
-          <section class="carousel-slide">
+          <section class="carousel-slide" role="group" aria-roledescription="Slide" aria-label="2 of 3">
             <picture class="carousel-slide-visual">
               <source srcset="assets/images/desktop-image-hero-2.jpg">
               <img src="assets/images/mobile-image-hero-2.jpg"
@@ -103,7 +113,7 @@
                   src="assets/images/icon-arrow.svg" alt="/"></a>
             </div>
           </section>
-          <section class="carousel-slide">
+          <section class="carousel-slide" role="group" aria-roledescription="Slide" aria-label="3 of 3">
             <picture class="carousel-slide-visual">
               <source srcset="assets/images/desktop-image-hero-3.jpg">
               <img src="assets/images/mobile-image-hero-3.jpg"
@@ -129,16 +139,6 @@
             </div>
           </section>
         </main>
-        <div class="carousel-command">
-          <button class="carousel-command-left" aria-controls="carousel"
-            aria-label="select the previous slide"><img
-              src="assets/images/icon-angle-left.svg"
-              alt="arrow pointing left"></button>
-          <button class="carousel-command-right" aria-controls="carousel"
-            aria-label="select the next slide"><img
-              src="assets/images/icon-angle-right.svg"
-              alt="arrow pointing right"></button>
-        </div>
       </div>
       <footer class="home-footer">
         <img class="footer-visual" src="assets/images/image-about-dark.jpg"
@@ -172,50 +172,117 @@
     </div>
   </body>
   <script>
-    // Toggle mobile menu
+    // Toggle burger menu
+    const burgerMenuBreakpoint = 1200;
     const toggle = document.querySelector('.mobile-nav-toggle');
-    const menu = document.querySelector('.primary-menu')
-    toggle.addEventListener('click', () => {
-      if(menu.dataset.visible === "false") {
-        menu.dataset.visible = "true";
-        toggle.setAttribute('aria-expanded', 'true');
-      } else {
-        menu.dataset.visible = "false";
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    })
+    const menu = document.querySelector('.primary-menu');
+    const listEltsMenu = document.querySelectorAll('.menu-container a');
+    const listOutsideMenu = document.querySelectorAll('.carousel a, .carousel-command button, .home-footer a');
+
+    let ecouteurActif = false;
+
+    function gererClick(event) {
+        if(menu.dataset.visible === "false") {
+          menu.dataset.visible = "true";
+          toggle.setAttribute('aria-expanded', 'true');
+          listEltsMenu.forEach((elt) => {
+            elt.setAttribute('tabindex', '0');
+          });
+          listOutsideMenu.forEach((elt) => {
+            elt.setAttribute('tabindex', '-1');
+          });
+        } else {
+          menu.dataset.visible = "false";
+          toggle.setAttribute('aria-expanded', 'false');
+          listEltsMenu.forEach((elt) => {
+            elt.setAttribute('tabindex', '-1');
+          });
+          listOutsideMenu.forEach((elt) => {
+            elt.setAttribute('tabindex', '0');
+          });
+        }
+    }
+
+    function ajouterEcouteur() {
+        if (!ecouteurActif && toggle) {
+            toggle.addEventListener('click', gererClick);
+            ecouteurActif = true;
+        }
+    }
+
+    function supprimerEcouteur() {
+        if (ecouteurActif && toggle) {
+            toggle.removeEventListener('click', gererClick);
+            ecouteurActif = false;
+        }
+    }
+
+    function gererEcouteurSelonLargeur() {
+        const largeurFenetre = window.innerWidth;
+        
+        if (largeurFenetre <= burgerMenuBreakpoint) {
+            listEltsMenu.forEach((elt) => {
+              elt.setAttribute('tabindex', '-1');
+            });
+            ajouterEcouteur();
+          } else {
+            listEltsMenu.forEach((elt) => {
+              elt.setAttribute('tabindex', '0');
+            });
+            supprimerEcouteur();
+        }
+    }
+
+    // Initialisation au chargement de la page
+    document.addEventListener('DOMContentLoaded', function() {
+        gererEcouteurSelonLargeur();
+    });
+
+    // Écouter les changements de taille de fenêtre
+    window.addEventListener('resize', function() {
+        // Optionnel : ajouter un délai pour éviter trop d'appels
+        clearTimeout(window.resizeTimeout);
+        window.resizeTimeout = setTimeout(gererEcouteurSelonLargeur, 100);
+    });
+
   </script>
   <script>
     // Control carousel
     const carousel = document.querySelector('.carousel');
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const carouselCount = slides.length;
+    const carouselCommand = document.querySelector('.carousel-command');
     const buttonLeft = document.querySelector('.carousel-command-left');
     const buttonRight = document.querySelector('.carousel-command-right');
     const scrollWidth = carousel.clientWidth;
     const scrollMax = carousel.scrollWidth - carousel.clientWidth;
 
-    buttonLeft.addEventListener('click', scrollLeft);
-    buttonRight.addEventListener('click', scrollRight);
+    if(carouselCount > 1) {
 
-    function scrollLeft() {
-      if(carousel.scrollLeft > 0) {
-        carousel.scrollBy({
-          left: -scrollWidth,
-          behavior: 'smooth'
-        });
-      } else {
-        console.log('start');
+      buttonLeft.addEventListener('click', scrollLeft);
+      buttonRight.addEventListener('click', scrollRight);
+
+      function scrollLeft() {
+        if(carousel.scrollLeft > 0) {
+          carousel.scrollBy({
+            left: -scrollWidth,
+            behavior: 'smooth'
+          });
+        }
       }
-    }
-    
-    function scrollRight() {
-      if(carousel.scrollLeft < scrollMax) {
-        carousel.scrollBy({
-          left: scrollWidth,
-          behavior: 'smooth'
-        });
-      } else {
-        console.log('end');
+      
+      function scrollRight() {
+        if(carousel.scrollLeft < scrollMax) {
+          carousel.scrollBy({
+            left: scrollWidth,
+            behavior: 'smooth'
+          });
+        } else {
+          console.log('end');
+        }
       }
+    } else {
+      carouselCommand.setAttribute('style', 'display:none');
     }
   </script>
 </html>

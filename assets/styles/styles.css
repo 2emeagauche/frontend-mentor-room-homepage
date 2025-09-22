@@ -791,6 +791,7 @@ header {
 .carousel-command {
   grid-column: 2/3;
   grid-row: 1/2;
+  z-index: 100;
   margin: auto 0 0 auto;
   display: flex;
   width: fit-content;
@@ -798,7 +799,7 @@ header {
 .carousel-command button {
   transition: background-color 0.3s;
 }
-.carousel-command button:hover {
+.carousel-command button:hover, .carousel-command button:focus {
   background-color: hsl(0, 0%, 27%);
 }
 @media screen and (min-width: 75rem) {
